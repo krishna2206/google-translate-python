@@ -36,6 +36,7 @@ The translate method returns a ```TranslatedText``` object with the following at
 - ```dest_lang```: The destination language
 - ```src_pronunciation```: The pronunciation of the source text
 - ```dest_pronunciation```: The pronunciation of the translated text
+
 If no attribute is specified, the translated text is returned by default.
 
 **NB** : In some languages, you can get *both feminine and masculine translations* for some gender-neutral words, phrases and sentences. In this case, the ```text``` attribute will be a list of strings, each string being a translation.
