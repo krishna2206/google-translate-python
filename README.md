@@ -1,5 +1,5 @@
 # google-translate-python
-### Version 2.0.0
+### Version 2.0.1
 
 A free and unlimited python API for google translate, use the reverse engineered Google Translate Ajax API.
   

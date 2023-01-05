@@ -1,6 +1,6 @@
 # coding:utf-8
 # author lushan88a, improved by krishna2206
-# version : 1.2.0
+# version : 2.0.1
 
 import re
 import json
