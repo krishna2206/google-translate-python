@@ -72,8 +72,8 @@ class TranslatedText:
     """A class to represent a translated text"""
 
     text: Union[str, list]
-    src_lang: str = None
-    dest_lang: str = None
+    src_lang: list = None
+    dest_lang: list = None
     src_pronunciation: str = None
     dest_pronunciation: str = None
 
