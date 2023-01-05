@@ -1,0 +1,1 @@
+from google_translate_python.googletranslatepython import GoogleTranslate
