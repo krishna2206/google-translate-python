@@ -141,21 +141,21 @@ class GoogleTranslate:
         freq = freq_initial
         return freq
 
-    def translate(self, text: str, src_lang: str = "auto", dest_lang: str = "auto") -> TranslatedText:
+    def translate(self, text: str, src_lang: str = "auto", dest_lang: str = "en") -> TranslatedText:
         """
         Translate text from one language to another.
 
         Args:
             text: The source text(s) to be translated. (str or unicode, or a sequence of these)
-            lang_tgt: The language to translate the source text into. The value should be one of the language codes listed in LANGUAGES. (str or unicode)
-            lang_src: The language of the source text. The value should be one of the language codes listed in LANGUAGES. If a language is not specified, the system will attempt to identify the source language automatically. (str or unicode)
+            src_lang: The language of the source text. The value should be one of the language codes listed in LANGUAGES. If a language is not specified, the system will attempt to identify the source language automatically. (str or unicode)
+            dest_lang: The language to translate the source text into. The value should be one of the language codes listed in LANGUAGES. (str or unicode)
 
         Returns:
             A TranslatedText object containing the translated text, source language, destination language, source pronunciation and destination pronunciation.
         """
         if src_lang != "auto" and src_lang not in LANGUAGES.keys():
             raise ValueError("Invalid source language")
-        if dest_lang != "auto" and dest_lang not in LANGUAGES.keys():
+        if dest_lang not in LANGUAGES.keys():
             raise ValueError("Invalid target language")
 
         text = str(text)
