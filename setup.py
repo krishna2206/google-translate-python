@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '2.0.1'
+VERSION = '2.0.2'
 DESCRIPTION = 'A free and unlimited python API for google translate.'
 LONG_DESCRIPTION = 'A free and unlimited python API for google translate, use the reverse engineered Google Translate Ajax API.'
 

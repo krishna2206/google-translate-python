@@ -1,6 +1,6 @@
 # coding:utf-8
 # author lushan88a, improved by krishna2206
-# version : 2.0.1
+# version : 2.0.2
 
 import re
 import json
@@ -10,7 +10,7 @@ from dataclasses import dataclass
 
 import logging
 import urllib3
-# from urllib.parse import quote
+from urllib.parse import quote
 from urllib3.exceptions import InsecureRequestWarning, ReadTimeoutError
 
 from retry import retry
