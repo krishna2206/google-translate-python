@@ -10,16 +10,19 @@ from dataclasses import dataclass
 
 import logging
 import urllib3
-from urllib.parse import quote
+# from urllib.parse import quote
+from urllib3.exceptions import InsecureRequestWarning, ReadTimeoutError
 
+from retry import retry
 from requests import Session
-from requests.exceptions import ConnectTimeout, HTTPError, RequestException
+from requests.exceptions import ConnectTimeout, HTTPError, RequestException, ReadTimeout
+
 from .constants import LANGUAGES, DEFAULT_SERVICE_URLS
 
 log = logging.getLogger(__name__)
 log.addHandler(logging.NullHandler())
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+urllib3.disable_warnings(InsecureRequestWarning)
 
 URL_SUFFIXES = [re.search("translate.google.(.*)", url.strip()).group(1)
                 for url in DEFAULT_SERVICE_URLS]
@@ -141,6 +144,7 @@ class GoogleTranslate:
         freq = freq_initial
         return freq
 
+    @retry(exceptions=(ReadTimeoutError, ReadTimeout), tries=5, delay=2)
     def translate(self, text: str, src_lang: str = "auto", dest_lang: str = "en") -> TranslatedText:
         """
         Translate text from one language to another.
